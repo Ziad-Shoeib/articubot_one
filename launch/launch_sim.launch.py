@@ -76,6 +76,20 @@ def generate_launch_description():
         arguments=["0", "0", "0", "0", "0", "0", "base_link", "my_bot/base_link/imu_sensor"],
     )
 
+    static_tf_depth_camera = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_depth_camera',
+        arguments=[
+            "0.1", "0.0", "0.2",         # x y z
+            "0.0", "0.0", "0.0",         # roll pitch yaw
+            "base_link",                # parent frame
+            "my_bot/base_link/depth_camera"  # child frame
+        ],
+        output='screen',
+    )
+
+
 
     diff_drive_spawner = Node(
         package="controller_manager",
@@ -139,5 +153,6 @@ def generate_launch_description():
         joint_broad_spawner,
         ros_gz_bridge,
         ros_gz_image_bridge,
-        static_tf_imu
+        static_tf_imu,
+        static_tf_depth_camera
     ])
