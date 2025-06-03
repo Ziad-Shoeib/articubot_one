@@ -1,0 +1,10 @@
+rtabmap:
+  ros__parameters:
+    RGBD/LoopClosureDetection: true
+    RGBD/LoopClosureReextractFeatures: true
+    RGBD/ProximityBySpace: true
+    RGBD/ProximityPathMaxNeighbors: 10
+    Kp/MaxFeatures: 1000
+    Optimizer/Strategy: 1  # GTSAM: 1, G2O: 0, Ceres: 2
+    RGBD/OptimizeFromGraphEnd: false
+
